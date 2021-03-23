@@ -13,4 +13,3 @@ Boilerplate implementado no curso de React Avançado, utilizando as tecnologias:
 - Husky
 - Plop
 - Dependabot + github actions
-
