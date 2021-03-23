@@ -1,15 +1,10 @@
-# Boilerplate Next.js
+# React avançado - front-end
 
-Boilerplate implementado no curso de React Avançado, utilizando as tecnologias:
+Projeto em desenvolvimento, está sendo implementado durante o curso de React Avançado.
 
-- TypeScript
-- NextJS
-- Styled Components
-- Jest
-- React Testing Library
-- Storybook
-- Eslint
-- Prettier
-- Husky
-- Plop
-- Dependabot + github actions
+:white_check_mark: Aplicação iniciada com o boilerplate: https://github.com/malufell/react-avancado-boilerplate
+
+:sunglasses: O back-end já está pronto: https://github.com/malufell/react-avancado-api
+
+
+
