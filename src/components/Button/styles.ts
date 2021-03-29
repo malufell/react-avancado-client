@@ -1,5 +1,54 @@
-import styled from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
+import { ButtonProps } from '.'
 
-export const Wrapper = styled.main`
+//pick pega as propriedades de algum lugar, aqui está pegando o size lá do index do componente
+type WrapperProps = {
+  hasIcon: boolean
+} & Pick<ButtonProps, 'size' | 'fullWidth'> //"&" é o union do typescript
 
+const wrapperModifiers = {
+  small: (theme: DefaultTheme) => css`
+    height: 3rem;
+    font-size: ${theme.font.sizes.xsmall};
+  `,
+  medium: (theme: DefaultTheme) => css`
+    height: 4rem;
+    font-size: ${theme.font.sizes.small};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
+  `,
+  large: (theme: DefaultTheme) => css`
+    height: 5rem;
+    font-size: ${theme.font.sizes.medium};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
+  `,
+  //para o botão de formulário que ocupa o espaço todo
+  fullWidth: () => css`
+    width: 100%;
+  `,
+  //para os botões que possuem ícone
+  withIcon: (theme: DefaultTheme) => css`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      width: 1.5rem;
+      & + span {
+        margin-left: ${theme.spacings.xxsmall};
+      }
+    }
+  `
+}
+
+export const Wrapper = styled.button<WrapperProps>`
+  ${({ theme, size, fullWidth, hasIcon }) => css`
+    background: linear-gradient(180deg, #ff5f5f 0%, #f062c0 50%);
+    color: ${theme.colors.white};
+    border: 0;
+    cursor: pointer;
+    border-radius: ${theme.border.radius};
+    padding: ${theme.spacings.xxsmall};
+    ${!!size && wrapperModifiers[size](theme)};
+    ${!!fullWidth && wrapperModifiers.fullWidth()};
+    ${!!hasIcon && wrapperModifiers.withIcon(theme)};
+  `}
 `
