@@ -1,13 +1,17 @@
 import * as S from './styles'
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
+
+//pra utilizar o "as" no componente, ora será link, ora será button (as polimorfismo)
+type ButtonTypes =
+  | AnchorHTMLAttributes<HTMLAnchorElement>
+  | ButtonHTMLAttributes<HTMLButtonElement>
 
 export type ButtonProps = {
-  children?: React.ReactNode
   size?: 'small' | 'medium' | 'large'
   fullWidth?: boolean
   icon?: JSX.Element
-  //para o futuro quando formos capturar click do mouse (agora não ta fazendo nada)
-  onClick?: () => (event: React.MouseEvent<HTMLButtonElement>) => void
-}
+  as?: React.ElementType
+} & ButtonTypes
 
 //ficou dentro da tag span pois pode ter um texto ou ícone dentro dele
 const Button = ({
