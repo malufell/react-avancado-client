@@ -1,13 +1,23 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
+import * as RibbonStyles from 'components/Ribbon/styles'
 
 export const Wrapper = styled.main`
   position: relative; //pra que o caption fique relativo, em relação ao wrapper
   ${media.greaterThan('medium')`
     box-shadow: 0 0.4rem 0.5rem 0 rgba(0, 0, 0, 0.2);
   `}
+  //se o banner for pequeno, o ribbon não pode ficar vazado, por isso ele setado na direita
+  //e é removido aquele triângulo sombreado debaixo dele
+  ${media.lessThan('large')`
+    ${RibbonStyles.Wrapper} {
+      right: 0;
+      &::before {
+        display: none;
+      }
+    }
+  `}
 `
-
 //props src criada pq a imagem vai ficar em uma div e div não tem src padrão
 type ImageProps = {
   src: string
