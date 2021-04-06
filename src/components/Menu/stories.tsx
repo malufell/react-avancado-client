@@ -11,6 +11,6 @@ export const Default: Story<MenuProps> = (args) => <Menu {...args} />
 Default.parameters = {
   layout: 'fullscreen', //isso serve pra tirar o padding padrão lá do storybook (fica uma borda estranha)
   backgrounds: {
-    default: 'dark'
+    default: 'won-dark'
   }
 }
