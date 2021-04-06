@@ -47,10 +47,10 @@ describe('<Highlight />', () => {
     )
   })
 
+  //verifica a ordem das informações
   it('should render align right by default', () => {
     const { container } = renderWithTheme(<Highlight {...props} />)
 
-    //verifica se o 'grid-template-areas' está na ordem "'floatimage content'" por padrão
     expect(container.firstChild).toHaveStyleRule(
       'grid-template-areas',
       "'floatimage content'"
