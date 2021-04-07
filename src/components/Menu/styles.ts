@@ -90,7 +90,8 @@ export const MenuFull = styled.nav<MenuFullProps>`
     flex-direction: column; //deixa toda info do menu em uma coluna
     justify-content: space-between;
     background: ${theme.colors.white};
-    position: absolute; //pra ele ficar em cima de tudo
+    position: fixed;
+    z-index: ${theme.layers.menu};
     top: 0; //borda
     bottom: 0; //borda
     left: 0; //borda
