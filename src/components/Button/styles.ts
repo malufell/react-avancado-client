@@ -1,10 +1,12 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import { ButtonProps } from '.'
 
+import { darken } from 'polished' //biblioteca do styled-componentes que ajuda com as cores
+
 //pick pega as propriedades de algum lugar, aqui está pegando o size lá do index do componente
 type WrapperProps = {
   hasIcon: boolean
-} & Pick<ButtonProps, 'size' | 'fullWidth'> //"&" é o union do typescript
+} & Pick<ButtonProps, 'size' | 'fullWidth' | 'minimal'> //"&" é o union do typescript
 
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
@@ -33,11 +35,19 @@ const wrapperModifiers = {
         margin-left: ${theme.spacings.xxsmall};
       }
     }
+  `,
+  minimal: (theme: DefaultTheme) => css`
+    background: none;
+    color: ${theme.colors.primary};
+
+    &:hover {
+      color: ${darken(0.2, theme.colors.primary)};
+    }
   `
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, hasIcon }) => css`
+  ${({ theme, size, fullWidth, hasIcon, minimal }) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -51,10 +61,16 @@ export const Wrapper = styled.button<WrapperProps>`
     text-decoration: none;
 
     &:hover {
-      background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
+      background: ${minimal
+        ? 'none'
+        : `linear-gradient(180deg, #e35565 0%, #d958a6 50%)`};
     }
+
+    //dupla negação é usada pra transformar em boolean
+    //se o elemento recebe o theme na consta, aqui ele tbm é passado. ver que o fullWidth não precisou
     ${!!size && wrapperModifiers[size](theme)};
     ${!!fullWidth && wrapperModifiers.fullWidth()};
     ${!!hasIcon && wrapperModifiers.withIcon(theme)};
+    ${!!minimal && wrapperModifiers.minimal(theme)};
   `}
 `
