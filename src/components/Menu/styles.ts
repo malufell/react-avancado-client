@@ -98,7 +98,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
     right: 0; //borda
     height: 100vh; //pra ter a altura da tela inteira
     overflow: hidden; //pra não ter scroll no próprio menu
-    transition: opacity 0.3s ease-in-out; //transição suave da aparição do menu
+    transition: opacity ${theme.transition.default}; //transição suave da aparição do menu
     opacity: ${isOpen ? 1 : 0}; //opacidade zero esconde o menu da tela
     //se o menu estiver aberto, poderei clicar
     pointer-events: ${isOpen ? 'all' : 'none'};
@@ -130,12 +130,12 @@ export const MenuFull = styled.nav<MenuFullProps>`
       margin-bottom: ${theme.spacings.small};
       //animação que sobe e desce os elementos quando abre o menu
       transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
-      transition: transform 0.3s ease-in-out;
+      transition: transform ${theme.transition.default};
     }
     //animação que sobe e desce os elementos quando abre o menu
     ${RegisterBox} {
       transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
-      transition: transform 0.3s ease-in-out;
+      transition: transform ${theme.transition.default};
     }
   `}
 `
