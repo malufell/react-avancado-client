@@ -4,7 +4,7 @@ import { ButtonProps } from '.'
 import { darken } from 'polished' //biblioteca do styled-componentes que ajuda com as cores
 
 //pick pega as propriedades de algum lugar, aqui está pegando o size lá do index do componente
-type WrapperProps = {
+export type WrapperProps = {
   hasIcon: boolean
 } & Pick<ButtonProps, 'size' | 'fullWidth' | 'minimal'> //"&" é o union do typescript
 

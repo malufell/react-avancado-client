@@ -54,6 +54,12 @@ export const BannerContent = styled.div`
     height: 100%;
     position: relative;
     z-index: ${theme.layers.base};
+
+    //fit content serve pra deixar o tamanho do elemento igual ao tamanho do conteúdo
+    a {
+      width: fit-content;
+      height: fit-content;
+    }
   `}
 `
 

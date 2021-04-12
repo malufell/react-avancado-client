@@ -1,5 +1,5 @@
 import * as S from './styles'
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
+import { forwardRef, AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 
 //pra utilizar o "as" no componente, ora será link, ora será button (as polimorfismo)
 type ButtonTypes =
@@ -15,19 +15,23 @@ export type ButtonProps = {
 } & ButtonTypes
 
 //ficou dentro da tag span pois pode ter um texto ou ícone dentro dele
-const Button = ({
-  children,
-  icon,
-  size = 'medium',
-  fullWidth = false,
-  minimal = false,
-  ...props //para o caso de passarmos mais propriedades no futuro
-}: ButtonProps) => (
+const Button: React.ForwardRefRenderFunction<S.WrapperProps, ButtonProps> = (
+  {
+    children,
+    icon,
+    size = 'medium',
+    fullWidth = false,
+    minimal = false,
+    ...props //para o caso de passarmos mais propriedades no futuro
+  },
+  ref
+) => (
   <S.Wrapper
     size={size}
     fullWidth={fullWidth}
     hasIcon={!!icon}
     minimal={minimal}
+    ref={ref}
     {...props}
   >
     {!!icon && icon}
@@ -35,4 +39,4 @@ const Button = ({
   </S.Wrapper>
 )
 
-export default Button
+export default forwardRef(Button)
