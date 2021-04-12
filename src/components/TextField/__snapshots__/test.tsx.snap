@@ -117,13 +117,3 @@ exports[`<TextField /> Renders with error 1`] = `
   </p>
 </div>
 `;
-
-exports[`<TextField /> should render the heading 1`] = `
-<main
-  class=""
->
-  <h1>
-    TextField
-  </h1>
-</main>
-`;
