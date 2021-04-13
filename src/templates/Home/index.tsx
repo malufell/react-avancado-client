@@ -1,12 +1,10 @@
+import Base from 'templates/Base'
 import { BannerProps } from 'components/Banner'
 import { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
 import { Container } from 'components/Container'
-import Showcase from 'components/Showcase'
-import Footer from 'components/Footer'
-import Menu from 'components/Menu'
 import BannerSlider from 'components/BannerSlider'
-
+import Showcase from 'components/Showcase'
 import * as S from './styles'
 
 export type HomeTemplateProps = {
@@ -15,10 +13,10 @@ export type HomeTemplateProps = {
   mostPopularHighlight: HighlightProps
   mostPopularGames: GameCardProps[]
   upcommingGames: GameCardProps[]
-  upcommingHighligth: HighlightProps
+  upcommingHighlight: HighlightProps
   upcommingMoreGames: GameCardProps[]
   freeGames: GameCardProps[]
-  freeHighligth: HighlightProps
+  freeHighlight: HighlightProps
 }
 
 const Home = ({
@@ -27,14 +25,13 @@ const Home = ({
   mostPopularHighlight,
   mostPopularGames,
   upcommingGames,
-  upcommingHighligth,
+  upcommingHighlight,
   upcommingMoreGames,
   freeGames,
-  freeHighligth
+  freeHighlight
 }: HomeTemplateProps) => (
-  <section>
+  <Base>
     <Container>
-      <Menu />
       <S.SectionBanner>
         <BannerSlider items={banners} />
       </S.SectionBanner>
@@ -52,17 +49,11 @@ const Home = ({
 
     <S.SectionUpcoming>
       <Showcase title="Upcoming" games={upcommingGames} />
-      <Showcase highlight={upcommingHighligth} games={upcommingMoreGames} />
+      <Showcase highlight={upcommingHighlight} games={upcommingMoreGames} />
     </S.SectionUpcoming>
 
-    <Showcase title="Free games" highlight={freeHighligth} games={freeGames} />
-
-    <S.SectionFooter>
-      <Container>
-        <Footer />
-      </Container>
-    </S.SectionFooter>
-  </section>
+    <Showcase title="Free games" highlight={freeHighlight} games={freeGames} />
+  </Base>
 )
 
 export default Home
