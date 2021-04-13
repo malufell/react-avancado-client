@@ -3,7 +3,6 @@ import Highlight, { HighlightProps } from 'components/Highlight'
 import { GameCardProps } from 'components/GameCard'
 import GameCardSlider from 'components/GameCardSlider'
 
-import React from 'react'
 import * as S from './styles'
 
 export type ShowcaseProps = {
