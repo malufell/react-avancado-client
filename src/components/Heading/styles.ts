@@ -4,7 +4,7 @@ import media from 'styled-media-query'
 import { HeadingProps, LineColors } from '.'
 
 //esse modifiers aplica as linhas lateral e inferior
-const wrapperModifiers = {
+export const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.medium};
     &::after {
