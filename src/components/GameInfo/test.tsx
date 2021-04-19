@@ -30,10 +30,12 @@ describe('<GameInfo />', () => {
 
     // esperar button add to cart
     expect(
-      screen.getByRole('button', { name: 'add to cart' })
+      screen.getByRole('button', { name: /add to cart/i })
     ).toBeInTheDocument()
 
     // esperar button wishlist
-    expect(screen.getByRole('button', { name: 'wishlist' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /wishlist/i })
+    ).toBeInTheDocument()
   })
 })
